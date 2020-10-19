@@ -69,7 +69,12 @@ unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 # unset path
-# path=(/usr/local/opt/ruby/bin $path)
+path=(
+  /Users/sydcanem/Developer/personal/diff-so-fancy
+  /usr/local/opt/postgresql@9.6/bin
+  /usr/local/opt/openjdk@11/bin
+  $path
+)
 
 # for path_file in /etc/paths.d/*(.N); do
 #   path+=($(<$path_file))

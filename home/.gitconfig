@@ -1,10 +1,9 @@
 [user]
-  name = Paul Miller
-  email = paul@paulmillr.com
-  signingkey = 46BEEF337A641ABB
+  name = James Santos
+  email = icqhv.santos@gmail.com
 
 [github]
-  user = paulmillr
+  user = sydcanem
 
 [alias]
   discard = reset --hard HEAD
@@ -32,7 +31,7 @@
   ui = true
 
 [core]
-  editor = code
+  editor = "code -w"
   excludesfile = ~/.gitignore
   pager = diff-so-fancy | less --tabs=4 -RFX
 

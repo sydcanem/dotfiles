@@ -9,6 +9,7 @@ source "$curr/terminal/startup.sh"
 source "$curr/terminal/completion.sh"
 source "$curr/terminal/highlight.sh"
 # echo "Load end\t" $(gdate "+%s-%N")
+source <(kubectl completion zsh)
 
 autoload -U colors && colors
 
@@ -69,6 +70,7 @@ function gca() {
   args=$@
   git commit --amend -m "$args"
 }
+alias gcan='git commit --amend --no-edit'
 
 function cherry() {
   is_range=''
@@ -350,4 +352,25 @@ function untarage() {
   rm $tarf
 }
 
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+function procinport() {
+  lsof -nP -iTCP:$1 | grep LISTEN
+}
+
+# Set title for iTerm tab
+precmd () {
+  echo -ne "\033]0;${PWD##*/}\007"
+}
+
+# alias for starting up mongo-server
+alias mongoup='mongod --config /usr/local/etc/mongod.conf'
+
+# kubernetes
+alias k=kubectl
+complete -F __start_kubectl k
+
+alias kap='kubectl apply -f'
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+
+# jenv
+eval "$(jenv init -)"
